@@ -35,7 +35,7 @@ public:
             int l = idx * 2 + 1;
             int r = idx * 2 + 2;
             if (l < nodes.size() && nodes[largest] < nodes[l])
-                 largest = l;
+                largest = l;
             if (r < nodes.size() && nodes[largest] < nodes[r])
                 largest = r;
             if (largest == idx)
@@ -82,19 +82,32 @@ public:
             cout << nodes[i] << " ";
         cout << "\n";
     }
-    //build heap  from array 
-    //jodi array value gula agey jana thake
-    void build_heap_from_array(vector<int> a){
+    // build heap  from array
+    // jodi array value gula agey jana thake
+    void build_heap_from_array(vector<int> a)
+    {
         nodes = a;
         int n = a.size();
-        int last_non_leaf = n/2 -1;
+        int last_non_leaf = n / 2 - 1;
         for (int i = last_non_leaf; i >= 0; i--)
         {
             down_hepify(i);
         }
-        
     }
 };
+// heap sort implementation
+vector<int> heap_sort(vector<int> a)
+{
+    MaxHeap h;
+    h.build_heap_from_array(a);
+    vector<int> ans;
+    for (int i = 0; i < a.size(); i++)
+    {
+        ans.push_back(h.extract_max());
+    }
+    reverse(ans.begin(), ans.end());
+    return ans;
+}
 int main()
 {
     // MaxHeap h;
@@ -110,9 +123,13 @@ int main()
     // h.print_heap();
     // cout << "extract max = " << h.extract_max() << "\n";
     // cout << "extract max = " << h.extract_max() << "\n";
-    MaxHeap h;
-    vector<int> a={1,2,3,4,10,9,8,7};
-    h.build_heap_from_array(a);
-    h.print_heap();
+
+    vector<int> a = {1, 2, 3, 4, 10, 9, 8, 7};
+    vector<int> ans = heap_sort(a);
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << " ";
+    }
+
     return 0;
 }
