@@ -94,6 +94,11 @@ public:
             down_hepify(i);
         }
     }
+    // size of heap
+    int size()
+    {
+        return nodes.size();
+    }
 };
 // heap sort implementation
 vector<int> heap_sort(vector<int> a)
@@ -108,28 +113,76 @@ vector<int> heap_sort(vector<int> a)
     reverse(ans.begin(), ans.end());
     return ans;
 }
+// priority queue implement using heap
+
+class Priority_Queue
+{
+public:
+    MaxHeap mh;
+    Priority_Queue()
+    {
+    }
+    // push in pq
+    void push(int x)
+    {
+        mh.inseart(x);
+    }
+    // pop
+    void pop()
+    {
+        mh.Delete(0);
+    }
+    // top
+    int top()
+    {
+        return mh.get_max();
+    }
+    // size
+    int size()
+    {
+        return mh.size();
+    }
+};
+// heap
+//   int main()
+//  {
+//      // MaxHeap h;
+//      // h.inseart(5);
+//      // h.inseart(15);
+//      // h.inseart(7);
+//      // h.inseart(18);
+//      // h.inseart(4);
+//      // h.print_heap();
+//      // h.Delete(2);
+//      // h.print_heap();
+//      // cout << "max = " << h.get_max() << "\n";
+//      // h.print_heap();
+//      // cout << "extract max = " << h.extract_max() << "\n";
+//      // cout << "extract max = " << h.extract_max() << "\n";
+
+//     // vector<int> a = {1, 2, 3, 4, 10, 9, 8, 7};
+//     // vector<int> ans = heap_sort(a);
+//     // for (int i = 0; i < ans.size(); i++)
+//     // {
+//     //     cout << ans[i] << " ";
+//     // }
+
+//     return 0;
+// }
+// priority queue
 int main()
 {
-    // MaxHeap h;
-    // h.inseart(5);
-    // h.inseart(15);
-    // h.inseart(7);
-    // h.inseart(18);
-    // h.inseart(4);
-    // h.print_heap();
-    // h.Delete(2);
-    // h.print_heap();
-    // cout << "max = " << h.get_max() << "\n";
-    // h.print_heap();
-    // cout << "extract max = " << h.extract_max() << "\n";
-    // cout << "extract max = " << h.extract_max() << "\n";
-
-    vector<int> a = {1, 2, 3, 4, 10, 9, 8, 7};
-    vector<int> ans = heap_sort(a);
-    for (int i = 0; i < ans.size(); i++)
+    Priority_Queue pq;
+    pq.push(10);
+    pq.push(1);
+    pq.push(12);
+    pq.push(9);
+    pq.push(7);
+    while (pq.size() != 0)
     {
-        cout << ans[i] << " ";
+        cout << pq.top() << " ";
+        pq.pop();
     }
-
-    return 0;
+    cout << "\n";
+    cout << pq.size();
 }
