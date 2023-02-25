@@ -143,6 +143,20 @@ public:
         return mh.size();
     }
 };
+// // min heap implement using max heap
+// class Min_heap
+// {
+// public:
+//     MaxHeap mh;
+//     void insert(int x)
+//     {
+//         mh.nodes.push_back(-1 * x);
+//         mh.up_heapify(mh.nodes.size() - 1);
+//     }
+//     void print_min_heap(){
+//         mh.print_heap();
+//     }
+// };
 // heap
 //   int main()
 //  {
@@ -169,20 +183,32 @@ public:
 
 //     return 0;
 // }
-// priority queue
-int main()
-{
-    Priority_Queue pq;
-    pq.push(10);
-    pq.push(1);
-    pq.push(12);
-    pq.push(9);
-    pq.push(7);
-    while (pq.size() != 0)
-    {
-        cout << pq.top() << " ";
-        pq.pop();
-    }
-    cout << "\n";
-    cout << pq.size();
-}
+
+// main for priority queue
+//  int main()
+//  {
+//      Priority_Queue pq;
+//      pq.push(10);
+//      pq.push(1);
+//      pq.push(12);
+//      pq.push(9);
+//      pq.push(7);
+//      while (pq.size() != 0)
+//      {
+//          cout << pq.top() << " ";
+//          pq.pop();
+//      }
+//      cout << "\n";
+//      cout << pq.size();
+//  }
+
+// int main()
+// {
+//     Min_heap mh;
+//     mh.insert(4);
+//     mh.insert(14);
+//     mh.insert(44);
+//     mh.insert(3);
+//     mh.print_min_heap();
+//     return 0;
+// }
